@@ -6,8 +6,6 @@
     <title>审方干预</title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/Tdrag.min.js"></script>
-    <script type="text/javascript" src="js/layer/layer.js"></script>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="css/intervene.css"/>
 
@@ -15,8 +13,8 @@
 
 <body>
 <div class="wrapper-head">
-    <div class="wrapper-head-left"><img src="images/system_version.png"/></div>
-    <div class="wrapper-head-right"><i class=""></i>您好：<span class="head-hospitalName">医院名称广州中医院</span> - 张三（状态：<span id="checkStatus">正在审方</span>）&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">退出</a></div>
+    <div class="wrapper-head-left"><img src="images/system_version.png"/><span class="head-hospitalName">医院名称广州中医院</span></div>
+    <div class="wrapper-head-right"><i class=""></i>您好：张三&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">退出</a></div>
 </div>
 
     <div class="wrapper-content">
@@ -32,9 +30,10 @@
             <div class="operate-content">
 				<button class="btn btn-bluebean">配置常用语</button>
                 <button class="btn btn-bluebean">配置院区科室映射</button>
-                <button class="btn btn-bluebean">配置干预科室</button>
-                <button class="btn btn-greenbean" id="changeCheckStatus" data-sign="1" onclick="changeCheckStatus(this)">关闭审方</button>
                 <button class="btn btn-bluebean">刷新</button>
+                <button class="btn btn-bluebean">配置干预科室</button>
+                <button class="btn btn-bluebean">关闭自动刷新</button>
+                <button class="btn btn-bluebean">标记为已确认</button>
             </div>
         </div>
 		
@@ -65,10 +64,7 @@
                 <!-- 待干预列表 -->
                 <div class="intervention-list-title">待干预列表(6)</div>
                 <div class="intervention-list-con">
-
                     <label class="waiting-all-check"><input type="checkbox" name="" class="waiting-allCheck">全选</label>
-                    <button class="btn">批量允许发药</button>
-
                     <!-- start-->
                     <div class="intervention-list-waiting-con">
                         <div class="waiting-intervention-detail" onclick="waitingInterventionFun('id1')">
@@ -144,15 +140,9 @@
                 </div>
                 <div class="intervention-details-info" id="intervene_detail_drugs_html">
                 </div>
-                <!-- 修改意见模块的class更名为suggestion-content-other -->
-                <!-- <div class="suggestion-content-other" id="intervene_detail_amendments_html">
+                <!-- <div class="suggestion-content" id="intervene_detail_amendments_html">
                 </div> -->
                 <div class="suggestion-content" id="intervene_detail_chatRecord_html">
-                </div>
-                <!-- 添加suggestion-content-toggle-news为即时消息闪烁状态 -->
-                <div class="suggestion-content-toggle suggestion-content-toggle-news" style="display:none">
-                    <div class="news-icon"></div>
-                    <p class="">干预记录</p>     
                 </div>
             </div>
         </div>
@@ -164,7 +154,7 @@
 
     <!-- 模板块，ajax请求返回数据之后，赋值 start -->
     <script type="text/html" id="intervene_being_list">
-        <li class="news-remind"><span class="intervention-being-id"><a href="javascript:;" onclick="interveneBeingID('00303932')">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="interveneBeingID('00303932')">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
         <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
         <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
         <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
@@ -259,10 +249,9 @@
         <script type="text/html" id="intervene_detail_drugs">
             <ul class="intervention-con-right-title" id="myTab">
                 <li class="active"><a href="#use-drugs-info" data-toggle="tab">用药信息</a></li>
-                <li class="unread-sign"><a href="#check-info" data-toggle="tab">检验信息</a></li>
+                <li><a href="#check-info" data-toggle="tab">检验信息</a></li>
                 <li><a href="#reporting-info" data-toggle="tab">报告信息</a></li>
-                <li class="unread-sign"><a href="#medicalRecord-info" data-toggle="tab">病历信息</a></li>
-                <li><a href="#info-dissemination" data-toggle="tab">信息调阅</a></li>
+                <li><a href="#medicalRecord-info" data-toggle="tab">病历信息</a></li>
             </ul>
 
             <div class="tab-content">
@@ -295,12 +284,12 @@
                                     
                                     <tr>
                                         <td width="7%"><input type="checkbox" class="every-drug-info-tdinput" data-id="22"></td>
-                                        <td width="14%"><span class="warn-info"></span>适应症</td>
+                                        <td width="14%"><span class=""></span>适应症</td>
                                         <td width="79%">适应症问题。药品说明书适应症为：躁狂、伴随焦虑的抑郁、强迫症、躁狂症、焦虑、抑郁。医生诊断为：感冒。</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" class="every-drug-info-tdinput" data-id="333"></td>
-                                        <td><span class="warn-info"></span>适应症</td>
+                                        <td><span class=""></span>适应症</td>
                                         <td>适应症问题。药品说明书适应症为：躁狂、伴随焦虑的抑郁、强迫症、躁狂症、焦虑、抑郁。医生诊断为：感冒。</td>
                                     </tr>
                                 </table>
@@ -319,7 +308,7 @@
                                 <span class="th-question-number">4（个）</span>
                             </div>
                             <div>
-                                <table class="every-drug-info-table">
+                                <table class="every-drug-info-table" style="display:none">
                                     <tr>
                                         <td width="7%"><input type="checkbox" class="every-drug-info-tdinput" data-id="2111"></td>
                                         <td width="14%"><span class=""></span>适应症</td>
@@ -429,33 +418,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="tab-pane" id="info-dissemination">
-                    <div class="info-dissemination-detail">
-                        <ul class="info-dissemination-ul">
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </script>
 
@@ -516,7 +478,7 @@
 
         <!-- 聊天记录 -->
         <script type="text/html" id="intervene_detail_chatRecord">
-            <div class="intervention-con-right-title">干预记录<span class="intervention-close">一</span></div>
+            <div class="intervention-con-right-title">干预记录</div>
             <div id="modal-container-431558" class="detail-chatRecord-container">
                 <div id="text">
                     <div id="" class="text_style">
@@ -648,13 +610,13 @@
 
         /* 全选操作 start*/
             // 药品信息全选-药品选择框选中变化
-            $(".drugs-allCheck").change(function(event){
+            $(".drugs-allCheck").change(function(){
                 var drugsAllCheck= $(this).prop('checked');
                 $(".every-drug-allCheck").prop('checked',drugsAllCheck);
                 $(".every-drug-allCheck").trigger('change');
             })
             // 药品信息全选-每个药品的所有项选中变化
-            $(".every-drug-allCheck").change(function(event){
+            $(".every-drug-allCheck").change(function(){
                 var everyDrugAllCheck = $(this).prop('checked');
                 $(this).parents('li').find(".every-drug-info-tdinput").prop('checked',everyDrugAllCheck);
 
@@ -667,7 +629,7 @@
                 }
             })
             // 药品信息全选-每个药品的每一项选中变化
-            $(".every-drug-info-tdinput").change(function(event){
+            $(".every-drug-info-tdinput").change(function(){
                 var checkedLen = $(this).parents('.every-drug-info-table').find('.every-drug-info-tdinput:checked').length;
                 var allLen = $(this).parents('.every-drug-info-table').find('.every-drug-info-tdinput').length;
                 if(allLen == checkedLen){
@@ -698,93 +660,17 @@
     <script>
     function heightChange(){
         var winH = $(window).height(); 
-        var sugH = $(".suggestion-content-other").height();
-        if(sugH > 0){
-            sugH = sugH +5 
-        }else{
-            sugH = 0
-        }
-        $(".intervention-list-waiting-con").height(winH-381);
-        var rightH = winH-34-32-20-27-sugH -5;
-        $(".prescription-details-ul").height(Math.round(rightH*0.23)-33);
-        $(".drugs-detail-ul").height(Math.round(rightH*0.77)-33-32);
-        $(".check-info-box").height(Math.round(rightH*0.77)-33-12);
-        $(".medicalRecord-detail").height(Math.round(rightH*0.77)-33);
-        $(".info-dissemination-detail").height(Math.round(rightH*0.77)-33);
+        $(".intervention-list-waiting-con").height(winH - 375);
+        $(".prescription-details-ul").height((winH - 372)*0.15);
+        $(".drugs-detail-ul").height((winH - 372)*0.38);
+        $(".check-info-box").height((winH - 372)*0.3+20);
+        $(".medicalRecord-detail").height((winH - 372)*0.3+32);
+        $(".chat-thread").height((winH - 372)*0.47);
     }
-
-    // 开启关闭审方
-    function changeCheckStatus(dom){
-        var sign = $(dom).data('sign');
-        if(sign == 1){
-            layer.confirm('是否确认关闭审方？', {
-              btn: ['确定','取消'] //按钮
-            }, function(){
-                $(dom).addClass('btn-yellowbean')
-                $(dom).html('开启审方');
-                $(dom).data('sign',2);
-                $("#checkStatus").html('审方关闭');
-                layer.closeAll();
-            });
-        }else if(sign == 2){
-            layer.confirm('是否确认开启审方？', {
-              btn: ['确定','取消'] //按钮
-            }, function(){
-                $(dom).removeClass('btn-yellowbean');
-                $(dom).html('关闭审方');
-                $(dom).data('sign',1);
-                $("#checkStatus").html('正在审方');
-                layer.closeAll();
-            });
-        }
-    }
-
-    $(function(){
-        //拖拽
-        $(".suggestion-content").Tdrag({
-            scope:"body",
-            handle:".intervention-con-right-title"
-        });
-
-        // 干预记录收缩框
-        $(".intervention-close").click(function(){
-            $(".suggestion-content").fadeOut();
-            $(".suggestion-content-toggle").show(200)
-        })
-        $(".suggestion-content-toggle").click(function(){
-            $(".suggestion-content").fadeIn(300);
-            $(".suggestion-content-toggle").hide()
-        })
-        // 单击药品折叠
-        $(".td-drugs-allTitle").click(function(event){
-            $(this).next().slideToggle(300)
-        })
-        //双击标题栏折叠
-        $(".th-drugs-allTitle").dblclick(function(event){
-            $(this).next('.drugs-detail-ul').find('.td-drugs-allTitle').next().slideToggle(300)
-        })
-
-        // checkbox点击阻止事件冒泡
-        $(".every-drug-allCheck").click(function(event){
-            event.stopPropagation();
-        })
-        $(".drugs-allCheck").dblclick(function(event){
-            event.stopPropagation();
-        })
-
-        // 切换去掉未读点标记
-        $('a[data-toggle="tab"]').on("shown.bs.tab", function(e){
-        $(this).parent('li').removeClass('unread-sign');
-        })
-
-        //模块高度计算
-        heightChange();
-    })
-    
+    heightChange();
     $(window).resize(function(){
         heightChange()
     })
-
     </script>
 </body>
 </html>

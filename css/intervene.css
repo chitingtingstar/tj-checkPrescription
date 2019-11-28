@@ -31,8 +31,8 @@ ul,li{
     position:relative;
 }
 .caret{
-    vertical-align:middle;
-    cursor:pointer;
+	vertical-align:middle;
+	cursor:pointer;
 }
 .intervention-text{
     border: 1px solid #EEE3DA;
@@ -46,7 +46,7 @@ ul,li{
 .intervention-text-title{
 }
 #intervention-grade{
-    cursor:pointer;
+	cursor:pointer;
 }
 .intervention-text-all{
     position: absolute;
@@ -54,10 +54,10 @@ ul,li{
     height: 56px;
     padding: 5px;
     border-radius: 5px;
-    z-index: 999999;
+	z-index: 999999;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    background:#fff9f0;
-    display:none;
+	background:#fff9f0;
+	display:none;
 }
 .intervention-text-all li{
     float:left;
@@ -161,7 +161,7 @@ ul,li{
 
 .suggestion-content,.intervention-details-info{
     margin-top:10px;
-    /*padding-bottom: 1px;*/
+	padding-bottom: 1px;
 }
 
 .prescription-diagnosis{
@@ -397,7 +397,7 @@ ul,li{
 }
 
 .th-drugs-allTitle{
-    margin-right: 10px;
+	margin-right: 10px;
     overflow: hidden;
     background: #fafafa
 }
@@ -917,304 +917,12 @@ outline: none;
     color:white;
 }
 .drugs-detail-ul{
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
 .check_info_tr{
-    overflow-y: auto;
+	overflow-y: auto;
     height: 33px;
 }
 .th-drugs-allTitle .th-drugs-name {
     text-align: left;
-}
-
-
-/* 干预记录 */
-.detail-chatRecord-container{
-    margin:0;
-}
-.suggestion-content{
-    width:500px;
-    height:520px;
-    position:fixed;
-    bottom:2px;
-    right:2px;
-    box-shadow:0px 0px 10px #888;
-}
-.detail-chatRecord-container{
-    border:0;
-}
-.chatRecord-textarea {
-    background-color:#fff;
-}
-.chatRecord-textarea textarea{
-    margin:0;
-    padding:0;
-    background-color:#fff;
-}
-.intervention-close{
-    height:20px;
-    width:30px;
-    text-align: center;
-    font-size:21px;
-    position:absolute;
-    right:0;
-    top:0;
-    cursor:pointer;
-    font-size:12px;
-}
-.suggestion-content .intervention-con-right-title{
-    background:#2399F4;
-    color:#fff;
-    cursor:move
-}
-.suggestion-content-toggle{
-    position:fixed;
-    cursor:pointer;
-    width:70px;
-    height:60px;
-    background:#2399F4;
-    border-radius:1px;
-    bottom:30px;
-    right:2px;
-    color:#fff;
-    text-align:center;
-}
-@-webkit-keyframes twinkling{  
-    0%{
-        opacity:0.8;
-    }
-    100%{
-        opacity:1;
-    }
-}
-@keyframes twinkling{
-    0%{
-        opacity:0.8;
-    }
-    100%{
-        opacity:1; 
-    }
-}
-.suggestion-content-toggle-news{
-    background:#fa6b0a;
-    -webkit-animation: twinkling 0.3s infinite 0.3s ease-in-out alternate;
-    animation: twinkling 0.3s infinite 0.3s ease-in-out alternate;
-}
-.news-icon{
-    background: url(../images/news_icon.png) no-repeat;
-    width:23px;
-    height:23px;
-    background-size:100% ;
-    margin:9px auto 2px;
-}
-.chatRecord-textarea textarea{
-    height:90px;
-}
-.chat-thread{
-    height:330px;
-}
-
-/*药品信息*/
-.th-drugs-allTitle,.td-drugs-allTitle{
-    cursor:pointer;
-}
-.th-drugs-name{
-    text-align: left
-}
-.unread-sign{
-    position:relative;
-}
-.unread-sign::after{
-    display: block;
-    content:'';
-    position:absolute;
-    height:6px;
-    width:6px;
-    border-radius: 6px;
-    background-color:#D92E2B;
-    right:-2px;
-    top:-2px;
-}
-.intervention-being-id, .intervention-being-name{
-    width:calc(26% - 10px);
-}
-.intervention-being-department{
-    width:calc(47% - 15px);
-    display: inline-block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    vertical-align: middle;
-
-}
-.patient-detail span{
-    vertical-align: middle;
-    display: inline-block;
-    width:160px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden
-}
-
-.prescription-diagnosis{
-    display: inline-block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width:99%;
-    margin:0;
-    padding:0;
-}
-
-.prescription-details-ul li span:last-child{
-    vertical-align: middle;
-    width: 126px;
-    display: inline-block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.th-drugs-allTitle span, .td-drugs-allTitle>span{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.info-dissemination-ul{
-    width:800px;
-    margin:0 auto;
-    overflow: hidden;
-    padding-top:20px;
-}
-
-.info-dissemination-ul li{
-    margin:20px;
-    float:left;
-    border:1px solid #E5E5E5;
-    border-left:3px solid #2D9BF1;
-    width:116px;
-    text-align:center;
-    padding:20px;
-    line-height:2.2;
-    font-size:16px;
-    color:#2D9BF1
-}
-
-.info-dissemination-ul li img{
-    width:40px;
-}
-
-/*修改建议记录*/
-.suggestion-content-other{
-    background:#fff;
-    margin-top:5px;
-}
-
-/*正在干预即时消息提醒*/
-.intervention-being-ul li{
-    padding-left:15px;
-}
-
-@-webkit-keyframes twinklingNews{  
-    0%{
-        opacity:0.8;
-        background-color:#fff
-    }
-    100%{
-        opacity:1; 
-        background-color:#ECFEFA;
-    }
-}
-@keyframes twinklingNews{
-    0%{
-        opacity:0.8;
-        background-color:#fff
-    }
-    100%{
-        opacity:1; 
-        background-color:#ECFEFA;
-    }
-}
-@-webkit-keyframes twinklingNewsIcon{  
-    0%{
-        opacity:0.2;
-    }
-    100%{
-        opacity:1; 
-    }
-}
-@keyframes twinklingNewsIcon{
-    0%{
-        opacity:0.2;
-    }
-    100%{
-        opacity:1; 
-    }
-}
-
-.news-remind{
-    position: relative;
-    background-color:#ECFEFA;
-    -webkit-animation: twinklingNews 0.3s infinite 0.3s ease-in-out alternate;
-    animation: twinklingNews 0.3s infinite 0.3s ease-in-out alternate;
-}
-.news-remind::before{
-    content:'';
-    width:15px;
-    height:14px;
-    display: block;
-    position: absolute;
-    top:10px;
-    left:5px;
-    background:url(../images/remind_news_icon.png) no-repeat;
-    background-size:100%;
-    -webkit-animation: twinklingNewsIcon 0.3s infinite 0.3s ease-in-out alternate;
-    animation: twinklingNewsIcon 0.3s infinite 0.3s ease-in-out alternate;
-}
-
-.head-hospitalName{
-    margin-left:0;
-    font-size:14px;
-}
-
-.waiting-all-check{
-    padding:7px 8px;
-}
-
-.prescription-type,.drugs-detail-notice{
-    font-size:12px;
-}
-.question-detail{
-    font-size:13px;
-}
-.drugs-detail-name{
-    font-size:14px;
-    margin-left:6px;
-}
-.intervention-btn{
-    right:80px;
-}
-
-.every-drug-info-table td{
-    position:relative;
-}
-
-span.warn-info{
-    position:absolute;
-    top:50%;
-    margin-top:-8px;
-    left:-20px;
-    display: inline-block;
-    width:17px;
-    height:17px;
-    background:url(../images/warn_icon.png) no-repeat;
-}
-
-.btn:active,.btn:focus{
-    color:#fff;
-}
-
-input[type="radio"], input[type="checkbox"]{
-    margin-top:0;
 }
