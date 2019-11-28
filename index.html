@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="utf-8">
+    <title>审方干预</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/Tdrag.min.js"></script>
+    <script type="text/javascript" src="js/layer/layer.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/intervene.css"/>
+
+</head>
+
+<body>
+<div class="wrapper-head">
+    <div class="wrapper-head-left"><img src="images/system_version.png"/></div>
+    <div class="wrapper-head-right"><i class=""></i>您好：<span class="head-hospitalName">医院名称广州中医院</span> - 张三（状态：<span id="checkStatus">正在审方</span>）&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">退出</a></div>
+</div>
+
+    <div class="wrapper-content">
+        <!-- 说明和操作 -->
+        <div class="explain-operate">
+
+            <!-- 说明 -->
+            <div class="intervention-text">
+                <div class="intervention-text-title">目前医院规定的<b><span id="intervention-grade">【干预问题类型及级别】</span><span class="caret"></span></b></div>
+            </div>
+			
+            <!-- 操作 -->
+            <div class="operate-content">
+				<button class="btn btn-bluebean">配置常用语</button>
+                <button class="btn btn-bluebean">配置院区科室映射</button>
+                <button class="btn btn-bluebean">配置干预科室</button>
+                <button class="btn btn-greenbean" id="changeCheckStatus" data-sign="1" onclick="changeCheckStatus(this)">关闭审方</button>
+                <button class="btn btn-bluebean">刷新</button>
+            </div>
+        </div>
+		
+		 <!-- 干预问题类型及级别弹出内容 -->
+		<ul class="intervention-text-all">
+                    <li>特殊人群:慎用,禁忌</li>
+                    <li>适应症：慎用,禁忌</li>
+                    <li>相互作用:慎用,禁忌</li>
+                    <li>药敏:慎用,禁忌</li>
+                    <li>禁用症慎用症:慎用,禁忌</li>
+                    <li>重复用药:慎用,禁忌</li>
+                    <li>配伍禁忌:慎用,禁忌</li>
+                    <li>用法用量:慎用,禁忌</li>
+                    <li>医院管理</li>
+        </ul>
+		
+        <!-- 干预详情 -->
+        <div class="intervention-allcontent">
+            <div class="intervention-list-left">
+
+                <!-- 正在干预列表 -->
+                <div class="intervention-list-title">正在干预列表(5)</div>
+                <div class="intervention-being">
+                    <!-- <div class="intervention-being-th"><span class="intervention-being-id">患者ID</span><span class="intervention-being-name">医生姓名</span><span class="intervention-being-department">科室名称</span></div> -->
+                    <ul class="intervention-being-ul" id="intervention_being_list_html"></ul>
+                </div>
+
+                <!-- 待干预列表 -->
+                <div class="intervention-list-title">待干预列表(6)</div>
+                <div class="intervention-list-con">
+
+                    <label class="waiting-all-check"><input type="checkbox" name="" class="waiting-allCheck">全选</label>
+                    <button class="btn">批量允许发药</button>
+
+                    <!-- start-->
+                    <div class="intervention-list-waiting-con">
+                        <div class="waiting-intervention-detail" onclick="waitingInterventionFun('id1')">
+                            <div class="intervene-second">剩余：<span class="remaining-time" data-time="25">28</span>s</div>
+                            <div class="waiting-intervention-prescription">
+                                <input type="checkbox" name="" data-id="1" class="waiting-intervention-input">
+                                <div class="prescription-type-time">
+                                    <span class="prescription-type prescription-type-red">医院管理</span>
+                                    <span class="prescription-time">2019-08-07 14:22:14</span>
+                                </div>
+                                <div class="patient-detail">
+                                    <a href="javascript:;" class="">005467346</a>&nbsp;&nbsp;<span>儿童保健门诊</span>
+                                    <button class="btn intervention-btn">干预</button>
+                                    <button class="btn allow-btn">允许发药</button>
+                                </div>
+                                <div class="drugs-detail"><span class="drugs-detail-notice">慎用</span><span class="drugs-detail-name">吸入用布地奈德混悬液</span></div>
+                                <div class="question-detail">
+                                    问题数量：1<br>
+                                    问题信息：越级开抗菌药。抗菌要级别为：2（限制使用级），鱼汛的抗菌药级别为：抗菌药权限未知。
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+                        <div class="waiting-intervention-detail" onclick="waitingInterventionFun('id2')">
+                            <div class="intervene-second">剩余：<span  class="remaining-time" data-time="29">28</span>s</div>
+                            <div class="waiting-intervention-prescription">
+                                <input type="checkbox" name="" data-id="2" class="waiting-intervention-input">
+                                <div class="prescription-type-time">
+                                    <span class="prescription-type prescription-type-yellow">适应症</span>
+                                    <span class="prescription-type prescription-type-red">用法用量</span>
+                                    <span class="prescription-time">2019-08-07 14:22:14</span>
+                                </div>
+                                <div class="patient-detail">
+                                    <a href="javascript:;" class="">005467346</a>&nbsp;&nbsp;<span>儿童保健门诊</span>
+                                    <button class="btn intervention-btn">干预</button>
+                                    <button class="btn allow-btn">允许发药</button>
+                                </div>
+                                <div class="drugs-detail"><span class="drugs-detail-notice">慎用</span><span class="drugs-detail-name">吸入用布地奈德混悬液</span></div>
+                                <div class="question-detail">
+                                    问题数量：1<br>
+                                    问题信息：越级开抗菌药。抗菌要级别为：2（限制使用级），鱼汛的抗菌药级别为：抗菌药权限未知。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="waiting-intervention-detail" onclick="waitingInterventionFun('id2')">
+                            <div class="intervene-second">剩余：<span  class="remaining-time" data-time="9">9</span>s</div>
+                            <div class="waiting-intervention-prescription">
+                                <input type="checkbox" name="" data-id="2" class="waiting-intervention-input">
+                                <div class="prescription-type-time">
+                                    <span class="prescription-type prescription-type-yellow">适应症</span>
+                                    <span class="prescription-type prescription-type-red">用法用量</span>
+                                    <span class="prescription-time">2019-08-07 14:22:14</span>
+                                </div>
+                                <div class="patient-detail">
+                                    <a href="javascript:;" class="">005467346</a>&nbsp;&nbsp;<span>儿童保健门诊</span>
+                                    <button class="btn intervention-btn">干预</button>
+                                    <button class="btn allow-btn">允许发药</button>
+                                </div>
+                                <div class="drugs-detail"><span class="drugs-detail-notice">慎用</span><span class="drugs-detail-name">吸入用布地奈德混悬液</span></div>
+                                <div class="question-detail">
+                                    问题数量：1<br>
+                                    问题信息：越级开抗菌药。抗菌要级别为：2（限制使用级），鱼汛的抗菌药级别为：抗菌药权限未知。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="intervention-con-right">
+                <div class="prescription-details" id="intervene_detail_prescription_html">
+                </div>
+                <div class="intervention-details-info" id="intervene_detail_drugs_html">
+                </div>
+                <!-- 修改意见模块的class更名为suggestion-content-other -->
+                <!-- <div class="suggestion-content-other" id="intervene_detail_amendments_html">
+                </div> -->
+                <div class="suggestion-content" id="intervene_detail_chatRecord_html">
+                </div>
+                <!-- 添加suggestion-content-toggle-news为即时消息闪烁状态 -->
+                <div class="suggestion-content-toggle suggestion-content-toggle-news" style="display:none">
+                    <div class="news-icon"></div>
+                    <p class="">干预记录</p>     
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 100%; padding:3px 0;text-align: center; color: #6f6f6f; font-size:12px; font-family: '晴圆','微软雅黑','Microsoft YaHei';">
+        Copyright © 天际健康医疗科技有限公司
+    </div>
+
+    <!-- 模板块，ajax请求返回数据之后，赋值 start -->
+    <script type="text/html" id="intervene_being_list">
+        <li class="news-remind"><span class="intervention-being-id"><a href="javascript:;" onclick="interveneBeingID('00303932')">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+        <li><span class="intervention-being-id"><a href="javascript:;" onclick="">00303932</a></span><span class="intervention-being-name">赵某某</span><span class="intervention-being-department">中医科门诊</span></li>
+    </script>
+
+        <!-- 处方详情模板 -->
+        <script type="text/html" id="intervene_detail_prescription">
+            <div class="intervention-con-right-title" style="padding:0"><span class="prescription-diagnosis"><span class="prescription-details-th">诊断：</span>急性喘息性支气管炎、粒细胞缺乏</span></div>
+            <div></div>
+            <ul class="prescription-details-ul">
+                <li>
+                    <span class="prescription-details-th">ID号：</span>
+                    <span class="prescription-details-td">0373627262</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">病人姓名：</span>
+                    <span class="prescription-details-td">张三</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">出生日期：</span>
+                    <span class="prescription-details-td">2016-06-06</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">年龄：</span>
+                    <span class="prescription-details-td">23岁</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">性别：</span>
+                    <span class="prescription-details-td">男</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">身高(cm)：</span>
+                    <span class="prescription-details-td">160</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">体重(kg)：</span>
+                    <span class="prescription-details-td">50</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">费别：</span>
+                    <span class="prescription-details-td">西药费</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">身份：</span>
+                    <span class="prescription-details-td"></span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">肝功能不全：</span>
+                    <span class="prescription-details-td"></span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">肾功能不全：</span>
+                    <span class="prescription-details-td"></span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">胰腺功能不全：</span>
+                    <span class="prescription-details-td"></span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">过敏药物：</span>
+                    <span class="prescription-details-td"></span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">是否妊娠：</span>
+                    <span class="prescription-details-td"></span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">是否哺乳：</span>
+                    <span class="prescription-details-td"></span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">处方日期：</span>
+                    <span class="prescription-details-td">2019-06-12</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">就诊科室：</span>
+                    <span class="prescription-details-td">儿童保健门诊</span>
+                </li>
+                <li>
+                    <span class="prescription-details-th">医生姓名：</span>
+                    <span class="prescription-details-td">王二麻子</span>
+                </li>
+            </ul>
+            
+        </script>
+
+        <!-- 用药信息、检验信息、报告信息 -->
+        <script type="text/html" id="intervene_detail_drugs">
+            <ul class="intervention-con-right-title" id="myTab">
+                <li class="active"><a href="#use-drugs-info" data-toggle="tab">用药信息</a></li>
+                <li class="unread-sign"><a href="#check-info" data-toggle="tab">检验信息</a></li>
+                <li><a href="#reporting-info" data-toggle="tab">报告信息</a></li>
+                <li class="unread-sign"><a href="#medicalRecord-info" data-toggle="tab">病历信息</a></li>
+                <li><a href="#info-dissemination" data-toggle="tab">信息调阅</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="use-drugs-info">
+                    <div class="th-drugs-allTitle">
+                        <span class="th-allcheck"><input type="checkbox" class="drugs-allCheck"></span>
+                        <span class="th-drugs-name">药品名称（规格）</span>
+                        <span class="th-single-dose">单次剂量</span>
+                        <span class="th-usage">用法</span>
+                        <span class="th-frequency">频次</span>
+                        <span class="th-drugs-used-days">用药天数</span>
+                        <span class="th-drugs-used-number">用药数量</span>
+                        <span class="th-question-number">问题个数</span>
+                    </div>
+
+                    <ul class="drugs-detail-ul">
+                        <li>
+                            <div class="td-drugs-allTitle">
+                                <span class="th-allcheck"><input type="checkbox" class="every-drug-allCheck" data-id="11"></span>
+                                <span class="th-drugs-name"><i class="i-left">[</i>&nbsp;<a href="">舍曲林片（左洛复）(50mg*14片/盒)</a><i class="i-right">]</i></span>
+                                <span class="th-single-dose"><i class="text-color-red">100.0mg</i></span>
+                                <span class="th-usage"><i class="text-color-red">腹腔注射</i></span>
+                                <span class="th-frequency"><i class="text-color-red">Q6H</i></span>
+                                <span class="th-drugs-used-days">8</span>
+                                <span class="th-drugs-used-number">5盒</span>
+                                <span class="th-question-number"><i class="text-color-blue">4</i>（个）</span>
+                            </div>
+                            <div>
+                                <table class="every-drug-info-table">
+                                    
+                                    <tr>
+                                        <td width="7%"><input type="checkbox" class="every-drug-info-tdinput" data-id="22"></td>
+                                        <td width="14%"><span class="warn-info"></span>适应症</td>
+                                        <td width="79%">适应症问题。药品说明书适应症为：躁狂、伴随焦虑的抑郁、强迫症、躁狂症、焦虑、抑郁。医生诊断为：感冒。</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="every-drug-info-tdinput" data-id="333"></td>
+                                        <td><span class="warn-info"></span>适应症</td>
+                                        <td>适应症问题。药品说明书适应症为：躁狂、伴随焦虑的抑郁、强迫症、躁狂症、焦虑、抑郁。医生诊断为：感冒。</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="td-drugs-allTitle event-title">
+                                <span class="th-allcheck"><input type="checkbox" class="every-drug-allCheck" data-id="21"></span>
+                                <span class="th-drugs-name"><i class="i-left">[</i>&nbsp;<a href="">舍曲林片（左洛复）(50mg*14片/盒)</a><i class="i-right">]</i></span>
+                                <span class="th-single-dose">100.0mg</span>
+                                <span class="th-usage">腹腔注射</span>
+                                <span class="th-frequency">Q6H</span>
+                                <span class="th-drugs-used-days">8</span>
+                                <span class="th-drugs-used-number">5盒</span>
+                                <span class="th-question-number">4（个）</span>
+                            </div>
+                            <div>
+                                <table class="every-drug-info-table">
+                                    <tr>
+                                        <td width="7%"><input type="checkbox" class="every-drug-info-tdinput" data-id="2111"></td>
+                                        <td width="14%"><span class=""></span>适应症</td>
+                                        <td width="17%">阿司匹林</td>
+                                        <td width="62%">过敏啊适应症问题。药品说明书适应症为：躁狂、伴随焦虑的抑郁、强迫症、躁狂症、焦虑、抑郁。医生诊断为：感冒过敏啊。感冒过敏啊。感冒过敏啊。</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>                            
+                </div>
+
+                <div class="tab-pane" id="check-info">
+                    <div class="check-info-box">
+                        <div class="check-info-date"><b>日期：</b><label class="check-normal"><input type="checkbox" /><span>2018-12-13</span></label></div>
+                        <div class="check-info"><b>大类：</b><label class="check-normal"><input type="checkbox" /><span>肝功，肾功</span></label><label class="check-normal"><input type="checkbox"><span>血常规+超敏C反应</span></label></div>
+                        <table class="check-info-table" id="check_info_table_html">
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="reporting-info">
+                    <div class="check-info-box">
+                        <div class="check-info-date"><b>日期：</b><label class="check-normal"><input type="checkbox" /><span>2018-12-13</span></label></div>
+                        <div class="reporting-info-con">
+                            <ul>
+                                <li>
+                                    <div class="li-title-bg"><span class="li-title-name">胸部正侧位DR摄影</span><span class="li-title-date">2018-02-19 00:00:00</span></div>
+                                    <div class="li-reporting-con">
+                                        <span class="li-reporting-con-left">1</span>
+                                        <span class="li-reporting-con-right">
+                                            [检查参数]：[检查所见]：双肺纹理增多，未见明显异常密度影，双肺门不大。纵膈居中，心影大小形态未见明显异常。双膈面光整。肋膈角锐利。[印象]：双肺纹理增多。[建议]：口服克拉霉素抗感染治疗，注意休息，加强营养，防寒保暖，多参加有氧运动增强免疫力，保持足够的睡眠时间，劳逸结合。
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-title-bg"><span class="li-title-name">胸部正侧位DR摄影</span><span class="li-title-date">2018-02-19 00:00:00</span></div>
+                                    <div class="li-reporting-con">
+                                        <span class="li-reporting-con-left">2</span>
+                                        <span class="li-reporting-con-right">[检查参数]：[检查所见]：双肺纹理增多，未见明显异常密度影，双肺门不大。纵膈居中，心影大小形态未见明显异常。双膈面光整。肋膈角锐利。[印象]：双肺纹理增多。[建议]：</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="li-title-bg"><span class="li-title-name">胸部正侧位DR摄影</span><span class="li-title-date">2018-02-19 00:00:00</span></div>
+                                    <div class="li-reporting-con">
+                                        <span class="li-reporting-con-left">3</span>
+                                        <span class="li-reporting-con-right">[检查参数]：[检查所见]：双肺纹理增多，未见明显异常密度影，双肺门不大。纵膈居中，心影大小形态未见明显异常。双膈面光整。肋膈角锐利。[印象]：双肺纹理增多。[建议]：</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="medicalRecord-info">
+                    <div class="medicalRecord-detail">
+                        <ul class="medical-record-ul">
+                            <li>
+                                <span class="medical-record-ul-left">挂号日期：</span><b>2018-02-20 09:10:10</b>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">主诉：</span><b>高血压   糖尿病</b>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">辅助检查结果：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">现病史：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">诊断：</span><b>焦虑症</b>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">既往史：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">诊疗意见：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">体格检查：</span><span></span>
+                            </li>
+                        </ul>
+                        <ul class="medical-record-ul">
+                            <li>
+                                <span class="medical-record-ul-left">挂号日期：</span><b>2018-02-20 09:10:10</b>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">主诉：</span><b>高血压   糖尿病</b>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">辅助检查结果：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">现病史：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">诊断：</span><b>焦虑症</b>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">既往史：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">诊疗意见：</span><span></span>
+                            </li>
+                            <li>
+                                <span class="medical-record-ul-left">体格检查：</span><span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="info-dissemination">
+                    <div class="info-dissemination-detail">
+                        <ul class="info-dissemination-ul">
+                            <li>
+                                <a href="#">
+                                    <img src="images/example_icon.png"><br/>影像报告
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/example_icon.png"><br/>影像报告
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/example_icon.png"><br/>影像报告
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/example_icon.png"><br/>影像报告
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/html" id="check_info_table">
+            <tr>
+                <th width="5%"></th>
+                <th width="10%">检验组代码</th>
+                <th width="18%">检验组代码</th>
+                <th width="18%">检验代码</th>
+                <th width="17%">检验名称</th>
+                <th width="12%">结果</th>
+                <th width="13%">时间</th>
+                <th width="7%">标志</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>HY1077</td>
+                <td>血常规+超敏C反应蛋白测定</td>
+                <td>EO#</td>
+                <td>嗜酸性粒细胞绝对值</td>
+                <td>0.00</td>
+                <td>2018-12-13 00:00:00</td>
+                <td>标志</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HY1077</td>
+                <td>血常规+超敏C反应蛋白测定</td>
+                <td>EO#</td>
+                <td>嗜酸性粒细胞绝对值</td>
+                <td>0.00</td>
+                <td>2018-12-13 00:00:00</td>
+                <td>标志</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>HY1077</td>
+                <td>血常规+超敏C反应蛋白测定</td>
+                <td>EO#</td>
+                <td>嗜酸性粒细胞绝对值</td>
+                <td>0.00</td>
+                <td>2018-12-13 00:00:00</td>
+                <td>标志</td>
+            </tr>
+        </script>
+
+        <!-- 修改意见 -->
+        <script type="text/html" id="intervene_detail_amendments">
+            <div class="intervention-con-right-title">请输入修改意见</div>
+            <textarea class="textareaBox">
+            </textarea>
+            <div class="update-btn-all">
+                <button class="btn btn-yellowbean">发起干预</button>
+                <button class="btn btn-greenbean">允许发药</button>
+                <button class="btn btn-bluebean">常用语</button>
+            </div>
+        </script>
+
+        <!-- 聊天记录 -->
+        <script type="text/html" id="intervene_detail_chatRecord">
+            <div class="intervention-con-right-title">干预记录<span class="intervention-close">一</span></div>
+            <div id="modal-container-431558" class="detail-chatRecord-container">
+                <div id="text">
+                    <div id="" class="text_style">
+                        <ul class="chat-thread">
+                            <li class="chat-threadLeft">【药师干预药品】乳康丸【药师干预药品】乳康丸
+                            【药师干预问题】医院管理【警示信息】药控全院定量审核。</li>
+                            <li class="chat-threadLeft">【药师干预药品】乳康丸</li>
+                            <li class="chat-threadRight">我要开药</li>
+                            <li class="chat-threadRight"><span>医生请求双签字发药</span>&nbsp;&nbsp;<input type="button" class="agree-drugs-btn" value="同意" onclick="confirmDeliver(0, this)"><input type="button" class="refuse-drugs-btn" value="不同意" onclick="confirmDeliver(1, this)"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chatRecord-textarea">
+                    <textarea name="a" id="inputText"></textarea>
+                    <div class="charRecord-button">
+                        <input type="button" class="input-text-btn3" value="同意医师观点" onclick="agreeDoctor()">
+                        <input type="button" class="input-text-btn2" value="发送" id="sendMessageButton" onclick="sendMessage()">
+                        <input type="button" class="input-text-btn1" value="常用语" id="common_exp" onclick="getCommonExp('1')">
+                    </div>
+                </div>
+            </div>
+        </script>
+    <!-- 模板块，ajax请求返回数据之后，赋值 end -->
+
+    <!-- 模板引入js -->
+    <script type="text/javascript" src="js/art-template/es5-shim.min.js"></script>
+    <script type="text/javascript" src="js/art-template/es5-sham.min.js"></script>
+    <script type="text/javascript" src="js/art-template/json3.min.js"></script>
+    <script type="text/javascript" src="js/art-template/template-web.js"></script>
+
+    <script type="text/javascript">
+
+        // 倒计时30秒（后台需要存，并返回给前台data-time中)
+        // $(".waiting-intervention-detail").each(function(){
+        //     var totalTime = $(this).find('.remaining-time').data('time');
+        //     var that = $(this);
+        //     var setinterval = setInterval(function(){
+        //         if(totalTime>0){
+        //             totalTime--;
+        //             that.find(".remaining-time").html(totalTime)
+        //         }else{
+        //             var id = that.data('id');
+        //             // 自动消失并做ajax处理
+        //             $.ajax({
+
+        //             })
+        //             that.remove();
+        //         }
+        //     }, 1000);
+        // })
+
+        // 正在干预列表
+        $.ajax({
+            type: "GET",
+            url: "",
+            data: '',
+            dataType: "json",
+            success: function(data){
+                var intervene_being_list = template('intervene_being_list', data.intervene_being_list);
+                $("#intervention_being_list_html").html(intervene_being_list);
+            }
+        });
+
+        // 正在干预列表点击患者ID，显示干预详情
+        function interveneBeingID(id){
+            $.ajax({
+                type: "GET",
+                url: "",
+                data: {dataId:id},//id传值
+                dataType: "json",
+                success: function(data){
+                    // 将data数据放到模板中
+                     var intervene_detail_chatRecord = template('intervene_detail_chatRecord', data);
+                    $("#intervene_detail_chatRecord_html").html(intervene_detail_chatRecord);
+                }
+            });
+        }
+
+        // ajax 待干预、正在干预-详情
+        function waitingInterventionFun(idVal){
+            $.ajax({
+                type: "GET",
+                url: "",
+                data: {id:idVal},
+                dataType: "json",
+                success: function(data){
+                    // 处方详情
+                    var  intervene_detail_prescription = template('intervene_detail_prescription', data.prescription);
+                    $("#intervene_detail_prescription_html").html(intervene_detail_prescription);
+
+                    // 药品信息
+                    var  intervene_detail_drugs = template('intervene_detail_drugs', data.drugs);
+                    $("#intervene_detail_drugs_html").html(intervene_detail_drugs);
+
+                    // 检验信息
+                    var checkInfoHtml = template('check_info_table_html',data.drugs);
+                    $("#check_info_table").html(checkInfoHtml);
+
+                    // 修改意见
+                    var  intervene_detail_amendments = template('intervene_detail_amendments', data.amendments);
+                    $("#intervene_detail_amendments_html").html(intervene_detail_amendments);
+                }
+            });
+        }
+
+        /* 以下三个模块演示用，上方代码ajax返回数据后，此块注释掉即可  start */
+            var json={}
+            // 正在干预列表
+            var intervene_being_list = template('intervene_being_list', json);
+            $("#intervention_being_list_html").html(intervene_being_list);
+            // 处方详情
+            var intervene_detail_prescription = template('intervene_detail_prescription', json);
+            $("#intervene_detail_prescription_html").html(intervene_detail_prescription);
+            // 药品信息
+            var intervene_detail_drugs = template('intervene_detail_drugs', json);
+            $("#intervene_detail_drugs_html").html(intervene_detail_drugs);
+            // 检验信息
+            var checkInfoHtml = template('check_info_table',json);
+            $("#check_info_table_html").html(checkInfoHtml);
+            // 修改意见
+            var intervene_detail_amendments = template('intervene_detail_amendments', json);
+            $("#intervene_detail_amendments_html").html(intervene_detail_amendments);
+            // 聊天记录
+             var intervene_detail_chatRecord = template('intervene_detail_chatRecord', json);
+            $("#intervene_detail_chatRecord_html").html(intervene_detail_chatRecord);
+        /* 以下三个模块演示用，上方代码ajax返回数据后，此块注释掉即可  end */
+
+
+
+        /* 全选操作 start*/
+            // 药品信息全选-药品选择框选中变化
+            $(".drugs-allCheck").change(function(event){
+                var drugsAllCheck= $(this).prop('checked');
+                $(".every-drug-allCheck").prop('checked',drugsAllCheck);
+                $(".every-drug-allCheck").trigger('change');
+            })
+            // 药品信息全选-每个药品的所有项选中变化
+            $(".every-drug-allCheck").change(function(event){
+                var everyDrugAllCheck = $(this).prop('checked');
+                $(this).parents('li').find(".every-drug-info-tdinput").prop('checked',everyDrugAllCheck);
+
+                var checkedLen = $(this).parents('.tab-pane').find('.every-drug-allCheck:checked').length;
+                var allLen = $(this).parents('.tab-pane').find('.every-drug-allCheck').length;
+                if(checkedLen == allLen){
+                    $(".drugs-allCheck").prop('checked',true)
+                }else{
+                    $(".drugs-allCheck").prop('checked',false)
+                }
+            })
+            // 药品信息全选-每个药品的每一项选中变化
+            $(".every-drug-info-tdinput").change(function(event){
+                var checkedLen = $(this).parents('.every-drug-info-table').find('.every-drug-info-tdinput:checked').length;
+                var allLen = $(this).parents('.every-drug-info-table').find('.every-drug-info-tdinput').length;
+                if(allLen == checkedLen){
+                    $(this).parents('li').find('.every-drug-allCheck').prop('checked',true)
+                }else{
+                    $(this).parents('li').find('.every-drug-allCheck').prop('checked',false)
+                }
+                var checkedLen1 = $(this).parents('.tab-pane').find('.every-drug-allCheck:checked').length;
+                var allLen1 = $(this).parents('.tab-pane').find('.every-drug-allCheck').length;
+                if(checkedLen1 == allLen1){
+                    $(".drugs-allCheck").prop('checked',true)
+                }else{
+                    $(".drugs-allCheck").prop('checked',false)
+                }
+            })
+        /* 全选操作 end*/
+
+        // 药品信息、检验信息、报告信息切换
+        $('#myTab a:first').tab('show');
+		//点击显示隐藏干预问题类型及级别
+		$(function(){
+			$("#intervention-grade").click(function() {
+				$(".intervention-text-all").toggle();
+			});
+		});
+    </script>
+
+    <script>
+    function heightChange(){
+        var winH = $(window).height(); 
+        var sugH = $(".suggestion-content-other").height();
+        if(sugH > 0){
+            sugH = sugH +5 
+        }else{
+            sugH = 0
+        }
+        $(".intervention-list-waiting-con").height(winH-381);
+        var rightH = winH-34-32-20-27-sugH -5;
+        $(".prescription-details-ul").height(Math.round(rightH*0.23)-33);
+        $(".drugs-detail-ul").height(Math.round(rightH*0.77)-33-32);
+        $(".check-info-box").height(Math.round(rightH*0.77)-33-12);
+        $(".medicalRecord-detail").height(Math.round(rightH*0.77)-33);
+        $(".info-dissemination-detail").height(Math.round(rightH*0.77)-33);
+    }
+
+    // 开启关闭审方
+    function changeCheckStatus(dom){
+        var sign = $(dom).data('sign');
+        if(sign == 1){
+            layer.confirm('是否确认关闭审方？', {
+              btn: ['确定','取消'] //按钮
+            }, function(){
+                $(dom).addClass('btn-yellowbean')
+                $(dom).html('开启审方');
+                $(dom).data('sign',2);
+                $("#checkStatus").html('审方关闭');
+                layer.closeAll();
+            });
+        }else if(sign == 2){
+            layer.confirm('是否确认开启审方？', {
+              btn: ['确定','取消'] //按钮
+            }, function(){
+                $(dom).removeClass('btn-yellowbean');
+                $(dom).html('关闭审方');
+                $(dom).data('sign',1);
+                $("#checkStatus").html('正在审方');
+                layer.closeAll();
+            });
+        }
+    }
+
+    $(function(){
+        //拖拽
+        $(".suggestion-content").Tdrag({
+            scope:"body",
+            handle:".intervention-con-right-title"
+        });
+
+        // 干预记录收缩框
+        $(".intervention-close").click(function(){
+            $(".suggestion-content").fadeOut();
+            $(".suggestion-content-toggle").show(200)
+        })
+        $(".suggestion-content-toggle").click(function(){
+            $(".suggestion-content").fadeIn(300);
+            $(".suggestion-content-toggle").hide()
+        })
+        // 单击药品折叠
+        $(".td-drugs-allTitle").click(function(event){
+            $(this).next().slideToggle(300)
+        })
+        //双击标题栏折叠
+        $(".th-drugs-allTitle").dblclick(function(event){
+            $(this).next('.drugs-detail-ul').find('.td-drugs-allTitle').next().slideToggle(300)
+        })
+
+        // checkbox点击阻止事件冒泡
+        $(".every-drug-allCheck").click(function(event){
+            event.stopPropagation();
+        })
+        $(".drugs-allCheck").dblclick(function(event){
+            event.stopPropagation();
+        })
+
+        // 切换去掉未读点标记
+        $('a[data-toggle="tab"]').on("shown.bs.tab", function(e){
+        $(this).parent('li').removeClass('unread-sign');
+        })
+
+        //模块高度计算
+        heightChange();
+    })
+    
+    $(window).resize(function(){
+        heightChange()
+    })
+
+    </script>
+</body>
+</html>
