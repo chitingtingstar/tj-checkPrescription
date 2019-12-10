@@ -430,15 +430,16 @@ ul,li{
 }
 
 .th-allcheck{
-    padding-left:15px !important;
-    width:calc(7% - 15px)
+    padding-left:10px !important;
+    width:calc(4% - 10px)
 }
+
 
 .th-drugs-name{
     text-align: center;
     position: relative;
     padding:0 5px 0 5px !important;
-    width:calc(31% - 10px)
+    width:calc(23% - 10px)
 }
 
 .i-left,.i-right{
@@ -455,27 +456,37 @@ ul,li{
 }
 
 .th-single-dose{
-    width:calc(10% - 10px)
+    width:calc(9% - 5px)
 }
 
 .th-usage{
-    width:calc(12% - 10px)
+    width:calc(10% - 5px)
 }
 
 .th-frequency{
-    width:calc(10% - 10px)
+    width:calc(8% - 5px)
 }
 
 .th-drugs-used-days{
-    width:calc(10% - 10px)
+    width:calc(5% - 5px)
 }
 
 .th-drugs-used-number{
-    width:calc(10% - 10px)
+    width:calc(8% - 5px)
+}
+
+.th-skin-test{
+    width:calc(8% - 5px);
+}
+.th-dropping-speed{
+    width:calc(8% - 5px);
+}
+.th-remarks{
+    width:calc(10% - 5px);
 }
 
 .th-question-number{
-    width:calc(10% - 10px)
+    width:calc(7% - 5px)
 }
 
 .every-drug-info-table{
@@ -494,7 +505,7 @@ ul,li{
 }      
 
 input.every-drug-info-tdinput{
-    margin-left:10px;
+    margin-left:5px;
 }
 
 .text-color-red{
@@ -541,7 +552,7 @@ font-size:17px;
 margin-left:30px;
 }
 
-.check-info-box{
+.check-info-box,.medicalRecord-info-box{
 padding:6px;
 overflow-y: auto;
 }
@@ -588,7 +599,7 @@ height:46px;
 background:rgba(250,250,250,1); 
 }
 .check-info-table td{
-height:32px;
+min-height:22px;
 text-align: center;
 border-bottom:1px solid #F0F0F0;
 }
@@ -609,7 +620,6 @@ font-weight:bold;
 
 .reporting-info-con li{
 overflow: hidden;
-border-bottom:1px solid #f0f0f0;
 }
 
 .li-title-date{
@@ -634,21 +644,14 @@ width:calc(100% - 43px)
 
 .medical-record-ul{
 overflow: hidden;
-border-bottom:1px solid #f0f0f0;
+border:1px solid #f0f0f0;
 }
 
 .medical-record-ul li{
 float:left;
 width:50%;
 line-height:32px;
-}
-
-.medical-record-ul li:first-child{
-background:#FAFAFA;
-clear:both;
-line-height:40px;
-float:none;
-width:100%;
+border-bottom:1px solid #f0f0f0;
 }
 
 .medical-record-ul-left{
@@ -1217,4 +1220,133 @@ span.warn-info{
 
 input[type="radio"], input[type="checkbox"]{
     margin-top:0;
+}
+
+/*tab切换内容*/
+.check-info-con-left{
+    float:left;
+    width:343px;
+}
+.check-title-date,.check-title-item{
+    position:relative;
+    float:left;
+    border:1px solid #E2E2E2;
+    background:#E6F7FF;
+    text-align:center;
+    height:30px;
+    line-height: 30px;
+    cursor: pointer;
+   font-weight: bold
+}
+.check-title-date{
+    width:140px;
+}
+.check-title-date::before,.check-title-item::before,.check-title-date::after,.check-title-item::after{
+    display: block;
+    content:'';
+    position: absolute;
+    right:20px;
+    width: 0; 
+    height: 0;
+    border-width: 4px;
+    border-style: solid;  
+}
+
+.check-title-date::before,.check-title-item::before{
+    top:8px;
+    border-color: transparent #0099CC transparent transparent;
+    transform: rotate(90deg); 
+}
+.check-title-date::after,.check-title-item::after{
+    top:17px;
+    border-color: #0099CC transparent transparent transparent;
+}
+.sort-desc::before{
+    border-color:transparent #bbb transparent transparent;;
+}
+/*.sort-desc::after{
+    border-color:#999 transparent transparent transparent;;
+}*/
+.sort-asc::after{
+    border-color: #bbb transparent transparent transparent;;
+}
+/*.sort-asc::after{
+    border-color:#999 transparent transparent transparent;;
+}*/
+.check-info-con-title,.medicalRecord-info-con-title{
+    overflow: hidden;
+}
+.check-title-item{
+    border-left:0;
+    width:200px;
+}
+.con-li-date{
+    width:140px;
+    border:1px solid #e2e2e2;
+    border-width:0 1px 1px 0;
+}
+.con-li-item{
+    width:200px;
+    border:1px solid #e2e2e2;
+    border-width:0 0 1px 0;
+    cursor:pointer;
+}
+.con-li-date,.con-li-item{
+    float:left;
+    text-align: center;
+    line-height: 30px
+}
+.check-title-ul{
+    border:1px solid #e2e2e2;
+    border-width:0 1px 0 1px;
+}
+.check-title-ul li{
+    overflow: hidden;
+}
+
+.check-info-con-right{
+    margin-left:15px;
+    width:calc(100% - 358px);
+    float:left;
+}
+
+.medicalRecord-info-con-left{
+    float:left;
+    width:142px;
+}
+
+.medicalRecord-info-con-right{
+    float:left;
+    margin-left:15px;
+    width:calc(100% - 157px);
+}
+
+.check-info-table th{
+    height:30px;
+    background:#E6F7FF;
+    border:1px solid #e2e2e2;
+}
+
+.check-info-table tr:nth-child(even){
+    background:#fbfbfb;
+}
+
+.check-info-table td{
+    border:1px solid #e2e2e2;
+    padding:5px;
+}
+
+.check-info-table .icon-up,.check-info-table .icon-down{
+    width:12px;
+    height:17px;
+}
+.check-info-table .icon-up{
+    background: url(../images/icon_up.png) no-repeat;
+}
+.check-info-table .icon-down{
+    background: url(../images/icon_down.png) no-repeat;
+}
+
+#reporting-info .check-info-table td{
+    text-align: left
 }

@@ -269,13 +269,16 @@
                 <div class="tab-pane active" id="use-drugs-info">
                     <div class="th-drugs-allTitle">
                         <span class="th-allcheck"><input type="checkbox" class="drugs-allCheck"></span>
-                        <span class="th-drugs-name">药品名称（规格）</span>
+                        <span class="th-drugs-name">药品名（规格）</span>
                         <span class="th-single-dose">单次剂量</span>
                         <span class="th-usage">用法</span>
                         <span class="th-frequency">频次</span>
-                        <span class="th-drugs-used-days">用药天数</span>
-                        <span class="th-drugs-used-number">用药数量</span>
-                        <span class="th-question-number">问题个数</span>
+                        <span class="th-drugs-used-days">天数</span>
+                        <span class="th-drugs-used-number">数量</span>
+                        <span class="th-skin-test">皮试</span>
+                        <span class="th-dropping-speed">滴速</span>
+                        <span class="th-remarks">备注</span>
+                        <span class="th-question-number">问题数</span>
                     </div>
 
                     <ul class="drugs-detail-ul">
@@ -288,15 +291,18 @@
                                 <span class="th-frequency"><i class="text-color-red">Q6H</i></span>
                                 <span class="th-drugs-used-days">8</span>
                                 <span class="th-drugs-used-number">5盒</span>
+                                <span class="th-skin-test">是(阳性)</span>
+                                <span class="th-dropping-speed">80分钟/ML</span>
+                                <span class="th-remarks">你好啊你好啊</span>
                                 <span class="th-question-number"><i class="text-color-blue">4</i>（个）</span>
                             </div>
                             <div>
                                 <table class="every-drug-info-table">
                                     
                                     <tr>
-                                        <td width="7%"><input type="checkbox" class="every-drug-info-tdinput" data-id="22"></td>
+                                        <td width="6%"><input type="checkbox" class="every-drug-info-tdinput" data-id="22"></td>
                                         <td width="14%"><span class="warn-info"></span>适应症</td>
-                                        <td width="79%">适应症问题。药品说明书适应症为：躁狂、伴随焦虑的抑郁、强迫症、躁狂症、焦虑、抑郁。医生诊断为：感冒。</td>
+                                        <td width="80%">适应症问题。药品说明书适应症为：躁狂、伴随焦虑的抑郁、强迫症、躁狂症、焦虑、抑郁。医生诊断为：感冒。</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" class="every-drug-info-tdinput" data-id="333"></td>
@@ -316,6 +322,9 @@
                                 <span class="th-frequency">Q6H</span>
                                 <span class="th-drugs-used-days">8</span>
                                 <span class="th-drugs-used-number">5盒</span>
+                                <span class="th-skin-test">是(阳性)</span>
+                                <span class="th-dropping-speed">80分钟/ML</span>
+                                <span class="th-remarks">你好啊你好啊</span>
                                 <span class="th-question-number">4（个）</span>
                             </div>
                             <div>
@@ -334,171 +343,92 @@
 
                 <div class="tab-pane" id="check-info">
                     <div class="check-info-box">
-                        <div class="check-info-date"><b>日期：</b><label class="check-normal"><input type="checkbox" /><span>2018-12-13</span></label></div>
-                        <div class="check-info"><b>大类：</b><label class="check-normal"><input type="checkbox" /><span>肝功，肾功</span></label><label class="check-normal"><input type="checkbox"><span>血常规+超敏C反应</span></label></div>
-                        <table class="check-info-table" id="check_info_table_html">
-                        </table>
+                        <div class="check-info-con-left">
+                            <div class="check-info-con-title"><span class="check-title-date sort-desc">日期</span><span class="check-title-item sort-asc">检验项目</span></div>
+                            <div id="check_info_item_html"></div>
+                        </div>
+                        <div class="check-info-con-right">
+                            <table class="check-info-table" id="check_info_table_html">
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane" id="reporting-info">
                     <div class="check-info-box">
-                        <div class="check-info-date"><b>日期：</b><label class="check-normal"><input type="checkbox" /><span>2018-12-13</span></label></div>
-                        <div class="reporting-info-con">
-                            <ul>
-                                <li>
-                                    <div class="li-title-bg"><span class="li-title-name">胸部正侧位DR摄影</span><span class="li-title-date">2018-02-19 00:00:00</span></div>
-                                    <div class="li-reporting-con">
-                                        <span class="li-reporting-con-left">1</span>
-                                        <span class="li-reporting-con-right">
-                                            [检查参数]：[检查所见]：双肺纹理增多，未见明显异常密度影，双肺门不大。纵膈居中，心影大小形态未见明显异常。双膈面光整。肋膈角锐利。[印象]：双肺纹理增多。[建议]：口服克拉霉素抗感染治疗，注意休息，加强营养，防寒保暖，多参加有氧运动增强免疫力，保持足够的睡眠时间，劳逸结合。
-                                        </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="li-title-bg"><span class="li-title-name">胸部正侧位DR摄影</span><span class="li-title-date">2018-02-19 00:00:00</span></div>
-                                    <div class="li-reporting-con">
-                                        <span class="li-reporting-con-left">2</span>
-                                        <span class="li-reporting-con-right">[检查参数]：[检查所见]：双肺纹理增多，未见明显异常密度影，双肺门不大。纵膈居中，心影大小形态未见明显异常。双膈面光整。肋膈角锐利。[印象]：双肺纹理增多。[建议]：</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="li-title-bg"><span class="li-title-name">胸部正侧位DR摄影</span><span class="li-title-date">2018-02-19 00:00:00</span></div>
-                                    <div class="li-reporting-con">
-                                        <span class="li-reporting-con-left">3</span>
-                                        <span class="li-reporting-con-right">[检查参数]：[检查所见]：双肺纹理增多，未见明显异常密度影，双肺门不大。纵膈居中，心影大小形态未见明显异常。双膈面光整。肋膈角锐利。[印象]：双肺纹理增多。[建议]：</span>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="check-info-con-left">
+                            <div class="check-info-con-title"><span class="check-title-date sort-desc">日期</span><span class="check-title-item sort-asc">检验项目</span></div>
+                            <div class="reporting-info-con" id="reporting_info_con_html"></div>
+                        </div>
+                        <div class="check-info-con-right">
+                            <table class="check-info-table" id="reporting_info_table_html">
+                            </table>
                         </div>
                     </div>
                 </div>
-
                 <div class="tab-pane" id="medicalRecord-info">
-                    <div class="medicalRecord-detail">
-                        <ul class="medical-record-ul">
-                            <li>
-                                <span class="medical-record-ul-left">挂号日期：</span><b>2018-02-20 09:10:10</b>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">主诉：</span><b>高血压   糖尿病</b>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">辅助检查结果：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">现病史：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">诊断：</span><b>焦虑症</b>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">既往史：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">诊疗意见：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">体格检查：</span><span></span>
-                            </li>
-                        </ul>
-                        <ul class="medical-record-ul">
-                            <li>
-                                <span class="medical-record-ul-left">挂号日期：</span><b>2018-02-20 09:10:10</b>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">主诉：</span><b>高血压   糖尿病</b>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">辅助检查结果：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">现病史：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">诊断：</span><b>焦虑症</b>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">既往史：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">诊疗意见：</span><span></span>
-                            </li>
-                            <li>
-                                <span class="medical-record-ul-left">体格检查：</span><span></span>
-                            </li>
-                        </ul>
+                    <div class="medicalRecord-info-box">
+                        <div class="medicalRecord-info-con-left">
+                            <div class="medicalRecord-info-con-title"><span class="check-title-date sort-desc">就诊日期</span></div>
+                            <div class="medicalRecord-detail" id="medicalRecord_info_html">
+                            </div>
+                        </div>
+                        <div class="medicalRecord-info-con-right">
+                            <div class="" id="medicalRecord_info_table_html">
+                            </div>
+                        </div>    
                     </div>
                 </div>
 
                 <div class="tab-pane" id="info-dissemination">
-                    <div class="info-dissemination-detail">
-                        <ul class="info-dissemination-ul">
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/example_icon.png"><br/>影像报告
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="info-dissemination-detail" id="info_dissemination_html">
                     </div>
                 </div>
             </div>
         </script>
 
+        <!-- 检查信息 -->
         <script type="text/html" id="check_info_table">
             <tr>
-                <th width="5%"></th>
-                <th width="10%">检验组代码</th>
-                <th width="18%">检验组代码</th>
-                <th width="18%">检验代码</th>
-                <th width="17%">检验名称</th>
-                <th width="12%">结果</th>
-                <th width="13%">时间</th>
-                <th width="7%">标志</th>
+                <th width="37%">检验项目名称</th>
+                <th width="30%">检验结果</th>
+                <th width="13%">单位</th>
+                <th width="8%">标志</th>
+                <th width="12%">参考值</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>HY1077</td>
-                <td>血常规+超敏C反应蛋白测定</td>
-                <td>EO#</td>
                 <td>嗜酸性粒细胞绝对值</td>
-                <td>0.00</td>
-                <td>2018-12-13 00:00:00</td>
-                <td>标志</td>
+                <td>7.3</td>
+                <td>/ul</td>
+                <td><span class="icon-up"></span></td>
+                <td>0-5</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>HY1077</td>
-                <td>血常规+超敏C反应蛋白测定</td>
-                <td>EO#</td>
                 <td>嗜酸性粒细胞绝对值</td>
-                <td>0.00</td>
-                <td>2018-12-13 00:00:00</td>
-                <td>标志</td>
+                <td>7.3</td>
+                <td>/PDF</td>
+                <td><span class="icon-down"></span></td>
+                <td>0-5</td>
             </tr>
             <tr>
-                <td>5</td>
-                <td>HY1077</td>
-                <td>血常规+超敏C反应蛋白测定</td>
-                <td>EO#</td>
                 <td>嗜酸性粒细胞绝对值</td>
-                <td>0.00</td>
-                <td>2018-12-13 00:00:00</td>
-                <td>标志</td>
+                <td>7.3</td>
+                <td>/ul</td>
+                <td><span class="icon-down"></span></td>
+                <td>0-5</td>
+            </tr>
+            <tr>
+                <td>嗜酸性粒细胞绝对值</td>
+                <td>7.3</td>
+                <td>/ul</td>
+                <td><span class="icon-down"></span></td>
+                <td>0-5</td>
+            </tr>
+            <tr>
+                <td>嗜酸性粒细胞绝对值</td>
+                <td>7.3</td>
+                <td>/ul</td>
+                <td>—</td>
+                <td>0-5</td>
             </tr>
         </script>
 
@@ -539,6 +469,110 @@
                 </div>
             </div>
         </script>
+
+        <!-- 检验信息 -->
+        <script type="text/html" id="check_info_item">
+            <ul class="check-title-ul">
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item" onclick="itemContent()">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">生化常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">尿常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+            </ul>
+        </script>
+
+        <!-- 报告信息左侧 -->
+        <script type="text/html" id="reporting_info_con">
+            <ul class="check-title-ul">
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item" onclick="itemContent()">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">生化常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">尿常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+                <li><div class="con-li-date">2018-12-13 00:00</div><div class="con-li-item">血常规</div></li>
+            </ul>
+        </script>
+
+        <!-- 报告信息右侧 -->
+        <script type="text/html" id="reporting_info_table">
+            <tr>
+                <th width="100%">结果</th>
+            </tr>
+            <tr>
+                <td>嗜酸性粒细胞酸性粒细胞酸性粒细胞疯狂攻击阿里山可见度过来撒低级的技法卢卡斯的积分酸性粒细胞，绝对值</td>
+            </tr>
+        </script>
+
+        <!-- 病历信息左侧 -->
+        <script type="text/html" id="medicalRecord_info_item">
+            <ul class="check-title-ul">
+                <li><div class="con-li-date" onclick="everyMedicalRecord()">2018-12-13 00:00</div></li>
+                <li><div class="con-li-date" onclick="everyMedicalRecord()">2018-12-13 00:00</div></li>
+                <li><div class="con-li-date" onclick="everyMedicalRecord()">2018-12-13 00:00</div></li>
+                <li><div class="con-li-date" onclick="everyMedicalRecord()">2018-12-13 00:00</div></li>
+                <li><div class="con-li-date" onclick="everyMedicalRecord()">2018-12-13 00:00</div></li>
+                <li><div class="con-li-date" onclick="everyMedicalRecord()">2018-12-13 00:00</div></li>
+                <li><div class="con-li-date" onclick="everyMedicalRecord()">2018-12-13 00:00</div></li>
+            </ul>
+        </script>
+
+        <!-- 病历信息右侧 -->
+        <script type="text/html" id="medicalRecord_info_table">
+  
+            <ul class="medical-record-ul">
+                <li>
+                    <span class="medical-record-ul-left">主诉：</span><b>高血压   糖尿病</b>
+                </li>
+                <li>
+                    <span class="medical-record-ul-left">辅助检查结果：</span><span></span>
+                </li>
+                <li>
+                    <span class="medical-record-ul-left">现病史：</span><span></span>
+                </li>
+                <li>
+                    <span class="medical-record-ul-left">诊断：</span><b>焦虑症</b>
+                </li>
+                <li>
+                    <span class="medical-record-ul-left">既往史：</span><span></span>
+                </li>
+                <li>
+                    <span class="medical-record-ul-left">诊疗意见：</span><span></span>
+                </li>
+                <li>
+                    <span class="medical-record-ul-left">体格检查：</span><span></span>
+                </li>
+            </ul>
+        </script>
+
+        <!-- 信息调阅 -->
+        <script type="text/html" id="info_dissemination">
+            <ul class="info-dissemination-ul">
+                <li>
+                    <a href="#">
+                        <img src="images/example_icon.png"><br/>影像报告
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/example_icon.png"><br/>影像报告
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/example_icon.png"><br/>影像报告
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/example_icon.png"><br/>影像报告
+                    </a>
+                </li>
+            </ul>
+        </script>
+        
     <!-- 模板块，ajax请求返回数据之后，赋值 end -->
 
     <!-- 模板引入js -->
@@ -550,23 +584,23 @@
     <script type="text/javascript">
 
         // 倒计时30秒（后台需要存，并返回给前台data-time中)
-        // $(".waiting-intervention-detail").each(function(){
-        //     var totalTime = $(this).find('.remaining-time').data('time');
-        //     var that = $(this);
-        //     var setinterval = setInterval(function(){
-        //         if(totalTime>0){
-        //             totalTime--;
-        //             that.find(".remaining-time").html(totalTime)
-        //         }else{
-        //             var id = that.data('id');
-        //             // 自动消失并做ajax处理
-        //             $.ajax({
+        $(".waiting-intervention-detail").each(function(){
+            var totalTime = $(this).find('.remaining-time').data('time');
+            var that = $(this);
+            var setinterval = setInterval(function(){
+                if(totalTime>0){
+                    totalTime--;
+                    that.find(".remaining-time").html(totalTime)
+                }else{
+                    var id = that.data('id');
+                    // 自动消失并做ajax处理
+                    $.ajax({
 
-        //             })
-        //             that.remove();
-        //         }
-        //     }, 1000);
-        // })
+                    })
+                    that.remove();
+                }
+            }, 1000);
+        })
 
         // 正在干预列表
         $.ajax({
@@ -589,8 +623,35 @@
                 dataType: "json",
                 success: function(data){
                     // 将data数据放到模板中
-                     var intervene_detail_chatRecord = template('intervene_detail_chatRecord', data);
+                    var intervene_detail_chatRecord = template('intervene_detail_chatRecord', data);
                     $("#intervene_detail_chatRecord_html").html(intervene_detail_chatRecord);
+
+                    // 处方详情
+                    var intervene_detail_prescription = template('intervene_detail_prescription', data.prescription);
+                    $("#intervene_detail_prescription_html").html(intervene_detail_prescription);
+
+                    // 药品信息
+                    var intervene_detail_drugs = template('intervene_detail_drugs', data.drugs);
+                    $("#intervene_detail_drugs_html").html(intervene_detail_drugs);
+
+                    // 检验信息
+                    var checkInfoItem = template('check_info_item',data.checkinfoitem);
+                    $("#check_info_item_html").html(checkInfoItem);
+                    // 默认点击第一个检查项
+                    $("#check_info_item_html ul li:first-child .con-li-item").trigger("click");
+
+                    // 报告信息
+                    var reporting_info_con = template('reporting_info_con',data.reporting_info_con);
+                    $("#reporting_info_con_table_html").html(reporting_info_con);
+
+                    // 病历信息
+                    var medicalRecord_info = template('medicalRecord_info_item',data.medicalRecord_info);
+                    $("#medicalRecord_info_html").html(medicalRecord_info);
+
+                    // 信息调阅
+                    var info_dissemination = template('info_dissemination',data.info_dissemination);
+                    $("#info_dissemination_html").html(info_dissemination);
+
                 }
             });
         }
@@ -612,8 +673,22 @@
                     $("#intervene_detail_drugs_html").html(intervene_detail_drugs);
 
                     // 检验信息
+                    var checkInfoItem = template('check_info_item',data.checkinfoitem);
+                    $("#check_info_item_html").html(checkInfoItem);
                     var checkInfoHtml = template('check_info_table_html',data.drugs);
                     $("#check_info_table").html(checkInfoHtml);
+
+                    // 报告信息
+                    var reporting_info_con = template('reporting_info_con',data.reporting_info_con);
+                    $("#reporting_info_con_table_html").html(reporting_info_con);
+
+                    // 病历信息
+                    var medicalRecord_info = template('medicalRecord_info_item',data.medicalRecord_info);
+                    $("#medicalRecord_info_html").html(medicalRecord_info);
+
+                    // 信息调阅
+                    var info_dissemination = template('info_dissemination',data.info_dissemination);
+                    $("#info_dissemination_html").html(info_dissemination);
 
                     // 修改意见
                     var  intervene_detail_amendments = template('intervene_detail_amendments', data.amendments);
@@ -621,6 +696,27 @@
                 }
             });
         }
+
+
+        // 检查项详情
+        function itemContent(itemId){
+            console.log('aaaa');
+            var itemId = itemId;
+            $.ajax({
+                type: "GET",
+                url: "",
+                data: {dataId:itemId},//id传值
+                dataType: "json",
+                success: function(data){
+                    var checkInfoHtml = template('check_info_table_html',data.drugs);
+                    $("#check_info_table").html(checkInfoHtml);
+                }
+
+            })
+        }
+
+
+
 
         /* 以下三个模块演示用，上方代码ajax返回数据后，此块注释掉即可  start */
             var json={}
@@ -634,8 +730,26 @@
             var intervene_detail_drugs = template('intervene_detail_drugs', json);
             $("#intervene_detail_drugs_html").html(intervene_detail_drugs);
             // 检验信息
+            var checkInfoItem = template('check_info_item',json);
+            $("#check_info_item_html").html(checkInfoItem);
             var checkInfoHtml = template('check_info_table',json);
             $("#check_info_table_html").html(checkInfoHtml);
+            // 报告信息
+            var reporting_info_con = template('reporting_info_con',json);
+            $("#reporting_info_con_html").html(reporting_info_con);
+            var reporting_info_table = template('reporting_info_table',json);
+            $("#reporting_info_table_html").html(reporting_info_table);
+            
+            // 病历信息
+            var medicalRecord_info = template('medicalRecord_info_item',json);
+            $("#medicalRecord_info_html").html(medicalRecord_info);
+            var medicalRecord_info_table = template('medicalRecord_info_table',json);
+            $("#medicalRecord_info_table_html").html(medicalRecord_info_table);
+
+            // 信息调阅
+            var info_dissemination = template('info_dissemination',json);
+            $("#info_dissemination_html").html(info_dissemination);
+
             // 修改意见
             var intervene_detail_amendments = template('intervene_detail_amendments', json);
             $("#intervene_detail_amendments_html").html(intervene_detail_amendments);
@@ -643,7 +757,6 @@
              var intervene_detail_chatRecord = template('intervene_detail_chatRecord', json);
             $("#intervene_detail_chatRecord_html").html(intervene_detail_chatRecord);
         /* 以下三个模块演示用，上方代码ajax返回数据后，此块注释掉即可  end */
-
 
 
         /* 全选操作 start*/
@@ -693,6 +806,7 @@
 				$(".intervention-text-all").toggle();
 			});
 		});
+
     </script>
 
     <script>
@@ -709,7 +823,7 @@
         $(".prescription-details-ul").height(Math.round(rightH*0.23)-33);
         $(".drugs-detail-ul").height(Math.round(rightH*0.77)-33-32);
         $(".check-info-box").height(Math.round(rightH*0.77)-33-12);
-        $(".medicalRecord-detail").height(Math.round(rightH*0.77)-33);
+        $(".medicalRecord-info-box").height(Math.round(rightH*0.77)-33-12);
         $(".info-dissemination-detail").height(Math.round(rightH*0.77)-33);
     }
 
