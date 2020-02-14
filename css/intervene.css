@@ -51,7 +51,6 @@ ul,li{
 .intervention-text-all{
     position: absolute;
     width: 510px;
-    height: 56px;
     padding: 5px;
     border-radius: 5px;
     z-index: 999999;

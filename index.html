@@ -16,7 +16,7 @@
 <body>
 <div class="wrapper-head">
     <div class="wrapper-head-left"><img src="images/system_version.png"/></div>
-    <div class="wrapper-head-right"><i class=""></i>您好：<span class="head-hospitalName">医院名称广州中医院</span> - 张三（状态：<span id="checkStatus">正在审方</span>）&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">退出</a></div>
+    <div class="wrapper-head-right"><i class=""></i>您好：<span class="head-hospitalName">医院名称广州中医院</span> - 张三（状态：<span id="checkStatus">正在审方</span>）&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:;" id="interveneQuit">退出</a></div>
 </div>
 
     <div class="wrapper-content">
@@ -805,6 +805,16 @@
 			$("#intervention-grade").click(function() {
 				$(".intervention-text-all").toggle();
 			});
+
+            $("#interveneQuit").click(function(){
+                layer.confirm('是否确认退出？', {
+                      btn: ['确定','取消'] //按钮
+                }, function(){
+                    window.opener = null;
+                    window.open('', '_self');
+                    window.close();
+                })
+            })
 		});
 
     </script>
