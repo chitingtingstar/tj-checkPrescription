@@ -23,7 +23,7 @@ ul,li{
 .wrapper-content{
     padding:5px;
     background:#EFEEF4;
-    height:calc(100% - );
+    height:calc(100% - 32px);
 }
 
 .explain-operate{
@@ -433,7 +433,6 @@ ul,li{
     width:calc(4% - 10px)
 }
 
-
 .th-drugs-name{
     text-align: center;
     position: relative;
@@ -459,15 +458,17 @@ ul,li{
 }
 
 .th-usage{
-    width:calc(10% - 5px)
-}
-
-.th-frequency{
     width:calc(8% - 5px)
+}
+.th-long-temporary{
+    width:calc(5% - 5px);
+}
+.th-frequency{
+    width:calc(7% - 5px)
 }
 
 .th-drugs-used-days{
-    width:calc(5% - 5px)
+    width:calc(4% - 5px)
 }
 
 .th-drugs-used-number{
@@ -478,7 +479,7 @@ ul,li{
     width:calc(8% - 5px);
 }
 .th-dropping-speed{
-    width:calc(8% - 5px);
+    width:calc(7% - 5px);
 }
 .th-remarks{
     width:calc(10% - 5px);

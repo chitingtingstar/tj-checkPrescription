@@ -25,7 +25,7 @@
 
             <!-- 说明 -->
             <div class="intervention-text">
-                <div class="intervention-text-title">目前医院规定的<b><span id="intervention-grade">【干预问题类型及级别】</span><span class="caret"></span></b></div>
+                <div class="intervention-text-title" id="intervention-grade">目前医院规定的<b><span >【干预问题类型及级别】</span><span class="caret"></span></b></div>
             </div>
 			
             <!-- 操作 -->
@@ -802,6 +802,13 @@
         $('#myTab a:first').tab('show');
 		//点击显示隐藏干预问题类型及级别
 		$(function(){
+
+            $("body").click(function(e) {
+                if (!$(e.target).closest(".intervention-text-all,.intervention-text").length) {
+                    $(".intervention-text-all").hide()
+                }
+            });
+
 			$("#intervention-grade").click(function() {
 				$(".intervention-text-all").toggle();
 			});
