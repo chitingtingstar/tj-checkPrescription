@@ -186,9 +186,9 @@ ul,li{
 }
 
 .intervention-being-id,.intervention-being-name{
-    width:calc(33% - 10px);
+    width:calc(33% - 5px);
     text-align:left;
-    padding-left:10px;
+    padding-left:5px;
     display: inline-block;
     height:35px;
     line-height:35px;
@@ -1038,9 +1038,15 @@ outline: none;
     right:-2px;
     top:-2px;
 }
-.intervention-being-id, .intervention-being-name{
-    width:calc(26% - 10px);
+
+
+.intervention-being-id{
+    width:calc(28% - 10px);
 }
+.intervention-being-name{
+    width:calc(24% - 10px);
+}
+
 .intervention-being-department{
     width:calc(47% - 15px);
     display: inline-block;
@@ -1169,7 +1175,7 @@ outline: none;
     display: block;
     position: absolute;
     top:10px;
-    left:5px;
+    left:3px;
     background:url(../images/remind_news_icon.png) no-repeat;
     background-size:100%;
     -webkit-animation: twinklingNewsIcon 0.3s infinite 0.3s ease-in-out alternate;
